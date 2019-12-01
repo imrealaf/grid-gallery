@@ -1,6 +1,6 @@
 # Grid Gallery
 
-Just a simple Instagram like app that I built just because to demonstate some key concepts in modern React Apps.
+Just a simple Instagram like app that I built just because to demonstate some of the new features in React & Javascript
 
 ### Highlights
 
