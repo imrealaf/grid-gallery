@@ -1,0 +1,14 @@
+header {
+  text-align: center;
+  padding: $grid-gutter-width 0;
+
+  .logo {
+    height: 40px;
+    width: auto;
+  }
+
+  &.has-bg {
+    background: $primary;
+    padding: $grid-gutter-width/2 0;
+  }
+}

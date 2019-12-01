@@ -1,0 +1,21 @@
+.image-modal {
+  .modal-dialog {
+    max-width: 100%;
+    @include media-breakpoint-up(lg) {
+      max-width: 70vw;
+    }
+  }
+
+  .modal-content {
+    border-radius: 0;
+    border: none;
+  }
+
+  .modal-body {
+    padding: 0;
+  }
+}
+
+.modal-backdrop.show {
+  opacity: 0.75;
+}

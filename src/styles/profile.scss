@@ -1,0 +1,28 @@
+.profile {
+  background: $white;
+  padding: $grid-gutter-width;
+
+  .container {
+    display: flex;
+    align-items: center;
+
+    > div {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      padding: 0 1rem;
+
+      &:first-of-type {
+        align-items: flex-end;
+      }
+    }
+  }
+
+  .profile_image {
+    width: 100px;
+    height: 100px;
+    background: no-repeat center center;
+    background-size: cover;
+    border-radius: 50%;
+  }
+}
