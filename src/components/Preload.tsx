@@ -1,10 +1,9 @@
 import React, { useEffect, useState, useRef } from "react";
 
-import config from '../constants/config';
-import Preloader from './Preloader';
+import config from "../constants/config";
+import symbol from "../images/logo-symbol.png";
 
 const Preload: React.FC = () => {
-
   const ref = useRef() as any;
   const [show, setShow] = useState(true);
 
@@ -15,14 +14,13 @@ const Preload: React.FC = () => {
         setShow(false);
       }, 300);
     }, config.preload.delayTime);
-  }, [])
+  }, []);
 
-  return show ?
+  return show ? (
     <div className="preload" ref={ref}>
-      <Preloader />
+      <img className="logo" src={symbol} />
     </div>
-    : null
-
+  ) : null;
 };
 
 export default Preload;

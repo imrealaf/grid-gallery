@@ -13,8 +13,8 @@ header {
     top: 15px;
     right: 10px;
 
-    @include media-breakpoint-down(xs){
-  top: 10px;
+    @include media-breakpoint-down(xs) {
+      top: 10px;
     }
   }
 
@@ -23,7 +23,7 @@ header {
     padding: $grid-gutter-width/2 0;
 
     .logo {
-      @include media-breakpoint-down(xs){
+      @include media-breakpoint-down(xs) {
         height: 30px;
       }
     }
