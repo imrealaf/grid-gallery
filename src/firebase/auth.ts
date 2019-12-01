@@ -1,6 +1,6 @@
 import { auth } from "./firebase";
 
-// Sign Up
+// Sign Up (not implemented yet)
 export const doCreateUserWithEmailAndPassword = (
   email: string,
   password: string
@@ -13,11 +13,11 @@ export const doSignInWithEmailAndPassword = (email: string, password: string) =>
 // Sign out
 export const doSignOut = () => auth.signOut();
 
-// Password Reset
+// Password Reset (not implemented yet)
 export const doPasswordReset = (email: string) =>
   auth.sendPasswordResetEmail(email);
 
-// Password Change
+// Password Change (not implemented yet)
 export const doPasswordUpdate = async (password: string) => {
   if (auth.currentUser) {
     await auth.currentUser.updatePassword(password);
