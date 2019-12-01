@@ -4,7 +4,7 @@ Just a simple Instagram like app that I built just because to demonstate some of
 
 ### Highlights
 
-- Written in **TypeScript** which adds static typing and documentation
+- Written in **TypeScript** which adds static typing and documentation as well as using **TSLint** for linting and formatting
 - Uses latest ECMAScript syntax & features such as **async/await**
 - Using **React Hooks** and **Context** which are some cool new features of React
 - **Not a single Class component** used in this project! (due to above)
