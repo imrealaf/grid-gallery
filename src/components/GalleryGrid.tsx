@@ -1,7 +1,9 @@
 import React from "react";
+
 import { Image } from "../types/Image";
 import GalleryGridItem from "./GalleryGridItem";
 
+// Component props
 interface Props {
   images: Image[];
   error: any;

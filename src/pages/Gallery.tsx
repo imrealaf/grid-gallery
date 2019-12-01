@@ -14,12 +14,15 @@ const Gallery: React.FC = () => {
   // Get images data from custom hook `useImages` with user id
   const [images, numImages, imagesError] = useImages(user.uid) as any;
 
-  // Get profile data from custom hook `useImages` with user
+  // Get profile data from custom hook `useProfile` with user
   const [profile, profileError] = useProfile(user) as any;
 
   return (
     <React.Fragment>
+      {/* Profile section */}
       <Profile profile={profile} numImages={numImages} error={profileError} />
+
+      {/* Gallery grid */}
       <div className="gallery-grid-container container">
         <GalleryGrid images={images} error={imagesError} />
       </div>

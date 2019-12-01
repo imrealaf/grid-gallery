@@ -1,5 +1,6 @@
 import React from "react";
 
+// Component props
 interface Props {
   profile: any;
   numImages: number;

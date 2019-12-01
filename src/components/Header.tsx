@@ -1,10 +1,12 @@
 import React, { useContext } from "react";
 import { Dropdown } from "react-bootstrap";
+
 import { auth } from "../firebase";
 import { UserContext } from "../firebase/UserContext";
 import logo from "../images/logo.png";
 import logoWhite from "../images/logo-white.png";
 
+// Component props
 interface Props {
   route: string;
 }

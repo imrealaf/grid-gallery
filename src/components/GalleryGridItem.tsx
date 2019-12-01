@@ -1,21 +1,26 @@
 import React, { useState } from "react";
 import moment from "moment";
 import { Modal } from "react-bootstrap";
+
 import { Image } from "../types/Image";
 
+// Component props
 interface Props {
   image: Image;
 }
 
 const GalleryGridItem: React.FC<Props> = ({ image }) => {
+  // Modal states & event handlers
   const [showModal, setShowModal] = useState(false);
   const handleCloseModal = () => setShowModal(false);
   const handleShowModal = () => setShowModal(true);
 
+  // Create style object for image as background
   const style = {
     backgroundImage: `url(${image.src})`,
   };
 
+  // Format date in human readable format for modal
   const formatDate = (seconds: number) => {
     const date = new Date(seconds * 1000);
     return moment(date)
@@ -25,6 +30,7 @@ const GalleryGridItem: React.FC<Props> = ({ image }) => {
 
   return (
     <div className="gallery-grid-item" style={style} onClick={handleShowModal}>
+      {/* Image Modal (wrapped in onClick to prevent event hi-jacking on parent) */}
       <div onClick={e => e.stopPropagation()}>
         <Modal
           className="image-modal"
@@ -35,6 +41,7 @@ const GalleryGridItem: React.FC<Props> = ({ image }) => {
           <Modal.Body>
             <div className="row">
               <div className="col-12 col-md-6">
+                {/* Profile Image */}
                 <img
                   className="img-fluid"
                   src={image.src}
@@ -42,6 +49,7 @@ const GalleryGridItem: React.FC<Props> = ({ image }) => {
                 />
               </div>
               <div className="col-12 col-md-6">
+                {/* Profile info */}
                 <div className="p-3">
                   <h4>{image.caption}</h4>
                   <p>Posted {formatDate(image.created.seconds)}</p>
