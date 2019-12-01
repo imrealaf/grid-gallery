@@ -6,14 +6,11 @@ export default () => {
   const [user, setUser] = useState(null);
 
   // On auth state change ..
-  useEffect(
-    () => {
-      firebase.auth.onAuthStateChanged((authUser: any) => {
-        authUser ? setUser(authUser) : setUser(null);
-      });
-    },
-    [user]
-  );
+  useEffect(() => {
+    firebase.auth.onAuthStateChanged((authUser: any) => {
+      authUser ? setUser(authUser) : setUser(null);
+    });
+  }, [user]);
 
   // Return user ..
   return [user];

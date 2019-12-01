@@ -11,39 +11,43 @@ export default (id: string) => {
   /* 
     Run this when the component using it is mounted
   */
-  useEffect(
-    () => {
+  useEffect(() => {
+    // Construct function to get data
+    // - using aync/await
+    async function getImages() {
       // Create empty array for collection
       let images: Image[] = [];
 
-      // Make database call for images ..
-      db
-        .getUserImages(id)
-        .then(querySnapshot => {
-          // Loop through each record and push data to array..
-          querySnapshot.forEach(doc => {
-            let data = doc.data() as Image;
-            images.push(data);
-          });
+      // Get images from firestore db ..
+      try {
+        const query = await db.getUserImages(id);
 
-          // Update state with images
-          setData({
-            images,
-            numImages: images.length,
-            error: null,
-          });
-        })
-        .catch(error => {
-          // Error happened, update state..
-          setData({
-            images: null,
-            numImages: 0,
-            error,
-          });
+        // Loop through each record and push data to array..
+        query.forEach(doc => {
+          let data = doc.data() as Image;
+          images.push(data);
         });
-    },
-    [id, setData]
-  );
+
+        // Update state with images
+        setData({
+          images,
+          numImages: images.length,
+          error: null,
+        });
+
+        // Error happened, update state..
+      } catch (error) {
+        setData({
+          images: null,
+          numImages: 0,
+          error,
+        });
+      }
+    }
+
+    // Call async function
+    getImages();
+  }, [id, setData]);
 
   /* 
     Return data for component consumption

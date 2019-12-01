@@ -25,12 +25,9 @@ const App: React.FC<RouteComponentProps> = ({ location }) => {
   const [user] = useAuth();
 
   // On route change ..
-  useEffect(
-    () => {
-      setRouteClass(window.location.pathname);
-    },
-    [location.pathname]
-  );
+  useEffect(() => {
+    setRouteClass(window.location.pathname);
+  }, [location.pathname]);
 
   return (
     <UserContext.Provider value={user}>
@@ -46,13 +43,14 @@ const App: React.FC<RouteComponentProps> = ({ location }) => {
                 user ? (
                   <Gallery />
                 ) : (
-                    <Redirect
-                      to={{
-                        pathname: routes.LOGIN,
-                        state: { from: location },
-                      }}
-                    />
-                  )}
+                  <Redirect
+                    to={{
+                      pathname: routes.LOGIN,
+                      state: { from: location },
+                    }}
+                  />
+                )
+              }
             />
             <Route
               exact
@@ -61,13 +59,14 @@ const App: React.FC<RouteComponentProps> = ({ location }) => {
                 !user ? (
                   <Login />
                 ) : (
-                    <Redirect
-                      to={{
-                        pathname: routes.HOME,
-                        state: { from: location },
-                      }}
-                    />
-                  )}
+                  <Redirect
+                    to={{
+                      pathname: routes.HOME,
+                      state: { from: location },
+                    }}
+                  />
+                )
+              }
             />
           </Switch>
         </main>

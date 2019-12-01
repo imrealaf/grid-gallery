@@ -30,39 +30,33 @@ const Login: React.FC = () => {
   /* 
     Hook for when fields change
   */
-  useEffect(
-    () => {
-      // If all conditions are met, clear the error
-      if (error && username && password) {
-        setError(null);
-      }
-    },
-    [username, password]
-  );
+  useEffect(() => {
+    // If all conditions are met, clear the error
+    if (error && username && password) {
+      setError(null);
+    }
+  }, [username, password]);
 
   /* 
     Hook for when there is an error
   */
-  useEffect(
-    () => {
-      if (error) {
-        switch (error.code) {
-          // Focus on username
-          default:
-          case authCodes.ERROR_USERNAME:
-          case authCodes.ERROR_EMPTY:
-            usernameRef.current.focus();
-            break;
+  useEffect(() => {
+    if (error) {
+      switch (error.code) {
+        // Focus on username
+        default:
+        case authCodes.ERROR_USERNAME:
+        case authCodes.ERROR_EMPTY:
+          usernameRef.current.focus();
+          break;
 
-          // Focus on password
-          case authCodes.ERROR_PASSWORD:
-            passwordRef.current.focus();
-            break;
-        }
+        // Focus on password
+        case authCodes.ERROR_PASSWORD:
+          passwordRef.current.focus();
+          break;
       }
-    },
-    [error]
-  );
+    }
+  }, [error]);
 
   /* 
     On submit handler

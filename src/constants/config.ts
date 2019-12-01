@@ -2,9 +2,13 @@ export default {
   login: {
     delayTime: 2000,
     loadingText: "Signing you in...",
+    statusKey: "logged_in",
   },
   preload: {
-    delayTime: 1000
+    delayTime: 1000,
+  },
+  localStorage: {
+    dataPrefix: "gg",
   },
   firebase: {
     apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -15,5 +19,8 @@ export default {
     messagingSenderId: process.env.REACT_APP_FIREBASE_MSG_ID,
     appId: process.env.REACT_APP_FIREBASE_APP_ID,
     measurementId: process.env.REACT_APP_FIREBASE_MEASURE_ID,
+  },
+  getStatusKey() {
+    return `${this.localStorage.dataPrefix}_${this.login.statusKey}`;
   },
 };

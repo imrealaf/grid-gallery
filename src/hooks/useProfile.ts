@@ -11,38 +11,44 @@ export default (user: any) => {
   /* 
     Run this when the component using it is mounted
   */
-  useEffect(
-    () => {
-      // Make database call for profile ..
-      db
-        .getUserProfile(user.uid)
-        .then(querySnapshot => {
-          const data = querySnapshot.docs.map(doc => {
-            return doc.data();
-          })[0];
+  useEffect(() => {
+    // Construct function to get data
+    // - using aync/await
+    async function getProfile() {
+      // Get profile from firestore db ..
+      try {
+        const query = await db.getUserProfile(user.uid);
 
-          const profile = {
-            ...data,
-            username: user.email,
-            id: user.uid,
-          } as Profile;
+        // Extract data from query
+        const data = query.docs.map(doc => {
+          return doc.data();
+        })[0];
 
-          // Update state with images
-          setData({
-            profile,
-            error: null,
-          });
-        })
-        .catch(error => {
-          // Error happened, update state..
-          setData({
-            profile: null,
-            error,
-          });
+        // Create merged profile with user props
+        const profile = {
+          ...data,
+          username: user.email,
+          id: user.uid,
+        } as Profile;
+
+        // Update state with profile
+        setData({
+          profile,
+          error: null,
         });
-    },
-    [user, setData]
-  );
+
+        // Error getting profile ..
+      } catch (error) {
+        setData({
+          profile: null,
+          error,
+        });
+      }
+    }
+
+    // Call async function
+    getProfile();
+  }, [user, setData]);
 
   /* 
     Return data for component consumption
