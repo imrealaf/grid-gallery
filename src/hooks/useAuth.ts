@@ -9,7 +9,7 @@ export default () => {
   useEffect(
     () => {
       firebase.auth.onAuthStateChanged((authUser: any) => {
-        setUser(authUser);
+        authUser ? setUser(authUser) : setUser(null);
       });
     },
     [user]

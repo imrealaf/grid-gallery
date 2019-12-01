@@ -3,6 +3,9 @@ export default {
     delayTime: 2000,
     loadingText: "Signing you in...",
   },
+  preload: {
+    delayTime: 1000
+  },
   firebase: {
     apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
     authDomain: "grid-gallery-1fc14.firebaseapp.com",

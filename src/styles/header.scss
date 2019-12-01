@@ -1,4 +1,5 @@
 header {
+  position: relative;
   text-align: center;
   padding: $grid-gutter-width 0;
 
@@ -7,8 +8,24 @@ header {
     width: auto;
   }
 
+  .dropdown {
+    position: absolute;
+    top: 15px;
+    right: 10px;
+
+    @include media-breakpoint-down(xs){
+  top: 10px;
+    }
+  }
+
   &.has-bg {
     background: $primary;
     padding: $grid-gutter-width/2 0;
+
+    .logo {
+      @include media-breakpoint-down(xs){
+        height: 30px;
+      }
+    }
   }
 }

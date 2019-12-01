@@ -12,6 +12,7 @@ import { UserContext } from "../firebase/UserContext";
 import useAuth from "../hooks/useAuth";
 
 // Components
+import Preload from "./Preload";
 import Header from "./Header";
 
 // Routes & pages
@@ -34,6 +35,7 @@ const App: React.FC<RouteComponentProps> = ({ location }) => {
   return (
     <UserContext.Provider value={user}>
       <React.Fragment>
+        <Preload />
         <Header route={location.pathname.replace("/", "")} />
         <main id="main">
           <Switch>
@@ -44,13 +46,13 @@ const App: React.FC<RouteComponentProps> = ({ location }) => {
                 user ? (
                   <Gallery />
                 ) : (
-                  <Redirect
-                    to={{
-                      pathname: routes.LOGIN,
-                      state: { from: location },
-                    }}
-                  />
-                )}
+                    <Redirect
+                      to={{
+                        pathname: routes.LOGIN,
+                        state: { from: location },
+                      }}
+                    />
+                  )}
             />
             <Route
               exact
@@ -59,13 +61,13 @@ const App: React.FC<RouteComponentProps> = ({ location }) => {
                 !user ? (
                   <Login />
                 ) : (
-                  <Redirect
-                    to={{
-                      pathname: routes.HOME,
-                      state: { from: location },
-                    }}
-                  />
-                )}
+                    <Redirect
+                      to={{
+                        pathname: routes.HOME,
+                        state: { from: location },
+                      }}
+                    />
+                  )}
             />
           </Switch>
         </main>

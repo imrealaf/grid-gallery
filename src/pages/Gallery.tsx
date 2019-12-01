@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import { UserContext } from "../firebase/UserContext";
-import { auth } from "../firebase";
 import useImages from "../hooks/useImages";
 import useProfile from "../hooks/useProfile";
 
@@ -10,7 +9,7 @@ import GalleryGrid from "../components/GalleryGrid";
 
 const Gallery: React.FC = () => {
   // Grab the user from the UserContext
-  const user = React.useContext(UserContext) as any;
+  const user = useContext(UserContext) as any;
 
   // Get images data from custom hook `useImages` with user id
   const [images, numImages, imagesError] = useImages(user.uid) as any;
@@ -23,13 +22,6 @@ const Gallery: React.FC = () => {
       <Profile profile={profile} numImages={numImages} error={profileError} />
       <div className="gallery-grid-container container">
         <GalleryGrid images={images} error={imagesError} />
-        <button
-          onClick={() => {
-            auth.doSignOut();
-          }}
-        >
-          Sign out
-        </button>
       </div>
     </React.Fragment>
   );
