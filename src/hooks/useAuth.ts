@@ -44,6 +44,7 @@ export default () => {
     // Run this when Auth state has changed .. (login/logout)
     firebase.auth.onAuthStateChanged((authUser: any) => {
       if (authUser) {
+        setUser(true);
         getUserWithProfile(authUser);
       } else {
         setUser(null);
