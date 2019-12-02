@@ -2,9 +2,8 @@ import React, { useContext } from "react";
 
 import { UserContext } from "../firebase/UserContext";
 import useImages from "../hooks/useImages";
-import useProfile from "../hooks/useProfile";
 
-import Profile from "../components/Profile";
+import ProfileSection from "../components/ProfileSection";
 import GalleryGrid from "../components/GalleryGrid";
 
 const Gallery: React.FC = () => {
@@ -12,15 +11,12 @@ const Gallery: React.FC = () => {
   const user = useContext(UserContext) as any;
 
   // Get images data from custom hook `useImages` with user id
-  const [images, numImages, imagesError] = useImages(user.uid) as any;
-
-  // Get profile data from custom hook `useProfile` with user
-  const [profile, profileError] = useProfile(user) as any;
+  const [images, numImages, imagesError] = useImages(user.id) as any;
 
   return (
     <React.Fragment>
       {/* Profile section */}
-      <Profile profile={profile} numImages={numImages} error={profileError} />
+      <ProfileSection profile={user} numImages={numImages} />
 
       {/* Gallery grid */}
       <div className="gallery-grid-container container">

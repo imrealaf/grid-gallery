@@ -7,7 +7,7 @@ interface Props {
   error?: any;
 }
 
-const Profile: React.FC<Props> = ({ profile, numImages, error }) => {
+const ProfileSection: React.FC<Props> = ({ profile, numImages, error }) => {
   return profile && !error ? (
     <div className="profile">
       <div className="container">
@@ -29,4 +29,4 @@ const Profile: React.FC<Props> = ({ profile, numImages, error }) => {
   ) : null;
 };
 
-export default Profile;
+export default ProfileSection;
