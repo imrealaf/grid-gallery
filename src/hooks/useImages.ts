@@ -32,7 +32,7 @@ export default (id: string) => {
         setData({
           images,
           numImages: images.length,
-          error: null,
+          error: null
         });
 
         // Error happened, update state..
@@ -40,7 +40,7 @@ export default (id: string) => {
         setData({
           images: null,
           numImages: 0,
-          error,
+          error
         });
       }
     }

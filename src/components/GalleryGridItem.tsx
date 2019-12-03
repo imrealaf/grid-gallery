@@ -17,7 +17,7 @@ const GalleryGridItem: React.FC<Props> = ({ image }) => {
 
   // Create style object for image as background
   const style = {
-    backgroundImage: `url(${image.src})`,
+    backgroundImage: `url(${image.src})`
   };
 
   // Format date in human readable format for modal

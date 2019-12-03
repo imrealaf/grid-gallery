@@ -88,7 +88,7 @@ const Login: React.FC = () => {
     } else {
       setError({
         code: authCodes.ERROR_EMPTY,
-        message: "Please fill in the required fields",
+        message: "Please fill in the required fields"
       });
     }
   };

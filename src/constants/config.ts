@@ -2,13 +2,10 @@ export default {
   login: {
     delayTime: 2000,
     loadingText: "Signing you in...",
-    statusKey: "logged_in",
+    statusKey: "logged_in"
   },
   preload: {
-    delayTime: 1000,
-  },
-  localStorage: {
-    dataPrefix: "gg",
+    delayTime: 1000
   },
   firebase: {
     apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -18,9 +15,6 @@ export default {
     storageBucket: "grid-gallery-1fc14.appspot.com",
     messagingSenderId: process.env.REACT_APP_FIREBASE_MSG_ID,
     appId: process.env.REACT_APP_FIREBASE_APP_ID,
-    measurementId: process.env.REACT_APP_FIREBASE_MEASURE_ID,
-  },
-  getStatusKey() {
-    return `${this.localStorage.dataPrefix}_${this.login.statusKey}`;
-  },
+    measurementId: process.env.REACT_APP_FIREBASE_MEASURE_ID
+  }
 };

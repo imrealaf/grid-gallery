@@ -1,6 +1,10 @@
-export const setRouteClass = (path: string) => {
-  const className: string = path.replace("/", "");
-  document.body.setAttribute("route", className === "" ? "home" : className);
+export const addRouteAttrToDOM = (
+  location: any,
+  element: HTMLElement = document.body,
+  rootName: string = "home"
+) => {
+  const route: string = location.pathname.replace("/", "");
+  element.dataset.route = route === "" ? rootName : route;
 };
 
 export const getTransitionDuration = (element: HTMLElement) => {

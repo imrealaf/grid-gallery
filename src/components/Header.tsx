@@ -6,7 +6,7 @@ import { UserContext } from "../firebase/UserContext";
 import logo from "../images/logo.png";
 import logoWhite from "../images/logo-white.png";
 
-import EditProfileModal from "./EditProfileModal";
+import { EditProfileModal } from "./";
 
 // Component props
 interface Props {

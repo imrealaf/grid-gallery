@@ -1,4 +1,4 @@
-[route="login"] {
+[data-route="login"] {
   background: $gray-100;
   display: flex;
   justify-content: center;
@@ -30,6 +30,7 @@
       .card-body {
         opacity: 0;
       }
+
       .card-loading-body {
         display: flex;
         flex-direction: column;
@@ -64,6 +65,7 @@
       h3 {
         margin-bottom: $grid-gutter-width/3;
       }
+
       #error {
         display: block;
       }

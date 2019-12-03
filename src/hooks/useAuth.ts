@@ -29,7 +29,7 @@ export default () => {
         const userWithProfile = {
           ...data,
           username: user.email,
-          id: user.uid,
+          id: user.uid
         } as Profile;
 
         // Update state with profile

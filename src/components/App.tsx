@@ -4,7 +4,7 @@ import {
   Route,
   Redirect,
   withRouter,
-  RouteComponentProps,
+  RouteComponentProps
 } from "react-router-dom";
 
 // Auth
@@ -12,11 +12,10 @@ import { UserContext } from "../firebase/UserContext";
 import useAuth from "../hooks/useAuth";
 
 // Components
-import Preload from "./Preload";
-import Header from "./Header";
+import { Preload, Header } from "./";
 
 // Routes & pages
-import { setRouteClass } from "../utils";
+import { addRouteAttrToDOM } from "../utils";
 import * as routes from "../constants/routes";
 import { Login, Gallery } from "../pages";
 
@@ -26,8 +25,8 @@ const App: React.FC<RouteComponentProps> = ({ location }) => {
 
   // On route change ..
   useEffect(() => {
-    setRouteClass(window.location.pathname);
-  }, [location.pathname]);
+    addRouteAttrToDOM(location);
+  }, [location]);
 
   return (
     <UserContext.Provider value={user}>
@@ -46,7 +45,7 @@ const App: React.FC<RouteComponentProps> = ({ location }) => {
                   <Redirect
                     to={{
                       pathname: routes.LOGIN,
-                      state: { from: location },
+                      state: { from: location }
                     }}
                   />
                 )
@@ -62,7 +61,7 @@ const App: React.FC<RouteComponentProps> = ({ location }) => {
                   <Redirect
                     to={{
                       pathname: routes.HOME,
-                      state: { from: location },
+                      state: { from: location }
                     }}
                   />
                 )

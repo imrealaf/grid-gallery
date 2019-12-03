@@ -9,6 +9,7 @@ import { db } from "./firebase";
 export const getUserImages = (id: string) =>
   db
     .collection(collections.IMAGES)
+    .where("userId", "==", id)
     .orderBy("created", "desc")
     .get();
 
